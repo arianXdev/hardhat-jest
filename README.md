@@ -32,8 +32,11 @@ import "hardhat-jest"; // Typescript
 ```
 
 ## Usage
+It's so easy, You can run your Jest tests by 
 
-Easily, Just run **`npx hardhat jest`** 🧑‍💻
+```
+npx hardhat jest
+```
 
 You've been using `npx hardhat test` to run your Mocha tests so far, but NOW you only need to use `jest` instead of `test` and Done!
 
