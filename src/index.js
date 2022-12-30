@@ -17,3 +17,13 @@ task("jest", "Runs Jest tests")
 		// Call suntask jest:run
 		await run("jest:run", { watchFlag, watchAllFlag });
 	});
+
+subtask("jest:run").setAction(async ({ watchFlag, watchAllFlag }) => {
+	const projectRootPath = [config.paths.root];
+
+	const jestOptions = { watch: watchFlag, watchAll: watchAllFlag ? true : undefined };
+
+	await runCLI(jestOptions, projectRootPath)
+		.then()
+		.catch((error) => console.error(error));
+});
