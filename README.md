@@ -83,3 +83,8 @@ AVAILABLE TASKS:
 ```
 and There it is, `jest` task is added successfully! it means that you can run **`npx hardhat jest`** and your tests will be run!
 
+
+## Final thoughts
+Finally, show us some love by **starring** the repository on GitHub!️ 😊
+
+Happy hacking!
