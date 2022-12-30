@@ -3,11 +3,20 @@ const { TASK_COMPILE } = require("hardhat/builtin-tasks/task-names");
 const { runCLI } = require("jest");
 
 task("jest", "Runs Jest tests")
-	.addFlag("noCompile", "Do NOT compile before running this task")
-	.addFlag("watch", "Watch files for changes and rerun tests related to changed files.")
-	.addFlag("watchAll", "Watch files for changes and rerun all tests")
+	.addFlag("noCompile", "Do NOT compile before running this task.")
+	.addFlag(
+		"watch",
+		"Watch files for changes and rerun tests related to changed files."
+	)
+	.addFlag("watchAll", "Watch files for changes and rerun all tests.")
+	.addFlag("bail", "Stop running tests after the first test failure.")
 	.setAction(async (taskArgs, { run }) => {
-		const { watch: watchFlag, watchAll: watchAllFlag, noCompile: noCompileFlag } = taskArgs;
+		const {
+			watch: watchFlag,
+			watchAll: watchAllFlag,
+			noCompile: noCompileFlag,
+			bail: bailFlag,
+		} = await taskArgs;
 
 		// If --no-compile flag is added, then don't compile before running this task
 		if (!noCompileFlag) {
@@ -15,15 +24,19 @@ task("jest", "Runs Jest tests")
 		}
 
 		// Call suntask jest:run
-		await run("jest:run", { watchFlag, watchAllFlag });
+		await run("jest:run", { watchFlag, watchAllFlag, bailFlag });
 	});
 
-subtask("jest:run").setAction(async ({ watchFlag, watchAllFlag }) => {
+subtask("jest:run").setAction(async ({ watchFlag, watchAllFlag, bailFlag }) => {
 	const projectRootPath = [config.paths.root];
 
-	const jestOptions = { watch: watchFlag, watchAll: watchAllFlag ? true : undefined };
+	const jestOptions = {
+		watch: watchFlag,
+		watchAll: watchFlag ? undefined : watchAllFlag,
+		bail: bailFlag,
+	};
 
 	await runCLI(jestOptions, projectRootPath)
-		.then()
+		.then((result) => result)
 		.catch((error) => console.error(error));
 });

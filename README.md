@@ -1,17 +1,29 @@
 # hardhat-jest
 
+<a href="https://npmjs.com/package/hardhat-jest" target="_blank">
+	<img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Solidity-e6e6e6?style=for-the-badge&logo=solidity&logoColor=black"/>
+	<img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white"/>
+</a>
+
+<a style="display: block" target="_blank" href="https://npmjs.com/package/hardhat-jest"><img
+    src="hardhat-jest.png"
+    width='1200"' /></a>
+[![Npm package version](https://badgen.net/npm/v/hardhat-jest)](https://npmjs.com/package/hardhat-jest)
+
 Have you always wanted to use **Jest** instead of Mocha + Chai in your Hardhat Projects? 😉 Good News!
 
 `hardhat-jest` allows you to use **Jest** easily 😃✌️
 
-
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Options](#options): See all the available options
-  - [Hardhat Tasks](#hardhat-tasks): See all the Hardhat tasks
-
+-   [Installation](#installation)
+-   [Usage](#usage)
+    -   [Options](#options): See all the available options
+    -   [Hardhat Tasks](#hardhat-tasks): See all the Hardhat tasks
 
 ## Installation
+
+First of all, Make sure that you have `jest` already installed!
 
 **Step 1:** Install the package
 
@@ -32,14 +44,14 @@ import "hardhat-jest"; // Typescript
 ```
 
 ## Usage
-It's so easy, You can run your Jest tests by 
+
+It's so easy, You can run your Jest tests by
 
 ```
 npx hardhat jest
 ```
 
 You've been using `npx hardhat test` to run your Mocha tests so far, but NOW you only need to use `jest` instead of `test` and Done!
-
 
 ### Options
 
@@ -50,9 +62,9 @@ Usage: hardhat [GLOBAL OPTIONS] jest [--no-compile] [--watch] [--watch-all]
 
 OPTIONS:
 
-  --no-compile	Do NOT compile before running this task 
-  --watch     	Watch files for changes and rerun tests related to changed files. 
-  --watch-all 	Watch files for changes and rerun all tests 
+  --no-compile	Do NOT compile before running this task
+  --watch     	Watch files for changes and rerun tests related to changed files.
+  --watch-all 	Watch files for changes and rerun all tests
 
 jest: Runs Jest tests
 
@@ -72,19 +84,20 @@ AVAILABLE TASKS:
   console           	Opens a hardhat console
   coverage          	Generates a code coverage report for tests
   flatten           	Flattens and prints contracts and their dependencies
-  gas-reporter:merge	
+  gas-reporter:merge
   help              	Prints this message
-> jest                  Runs Jest tests 
+> jest                  Runs Jest tests
   node              	Starts a JSON-RPC server on top of Hardhat Network
   run               	Runs a user-defined script after compiling the project
   test              	Runs mocha tests
   typechain         	Generate Typechain typings for compiled contracts
   verify            	Verifies contract on Etherscan
 ```
+
 and There it is, `jest` task is added successfully! it means that you can run **`npx hardhat jest`** and your tests will be run!
 
-
 ## Final thoughts
+
 Finally, show us some love by **starring** the repository on GitHub!️ 😊
 
 Happy hacking!
