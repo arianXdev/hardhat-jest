@@ -33,9 +33,9 @@ import "hardhat-jest"; // Typescript
 
 ## Usage
 
-Easily, **`npx hardhat jest`** 🧑‍💻
+Easily, Just run **`npx hardhat jest`** 🧑‍💻
 
-You have been using `npx hardhat test` to run your Mocha tests so far, but now you only need to use `jest` instead of `test` and Done!
+You've been using `npx hardhat test` to run your Mocha tests so far, but NOW you only need to use `jest` instead of `test` and Done!
 
 
 ### Options
