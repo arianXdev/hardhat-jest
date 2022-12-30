@@ -1,0 +1,30 @@
+{
+	"name": "hardhat-jest",
+	"version": "1.0.0",
+	"description": "A Hardhat plugin for using Jest",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/RyanHosseini/hardhat-jest.git"
+	},
+	"keywords": [
+		"hardhat",
+		"hardhat-plugin",
+		"hardhat-jest",
+		"jest",
+		"blockchain",
+		"ethereum",
+		"solidity",
+		"smart-contracts",
+		"web3"
+	],
+	"author": "Arian Hosseini",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/RyanHosseini/hardhat-jest/issues"
+	},
+	"homepage": "https://github.com/RyanHosseini/hardhat-jest#readme"
+}
