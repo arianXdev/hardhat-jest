@@ -26,5 +26,8 @@
 	"bugs": {
 		"url": "https://github.com/RyanHosseini/hardhat-jest/issues"
 	},
-	"homepage": "https://github.com/RyanHosseini/hardhat-jest#readme"
+	"homepage": "https://github.com/RyanHosseini/hardhat-jest#readme",
+	"devDependencies": {
+		"jest": "^29.3.1"
+	}
 }
