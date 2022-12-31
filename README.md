@@ -58,18 +58,28 @@ You've been using `npx hardhat test` to run your Mocha tests so far, but NOW you
 If you're looking to see all the options, you can do it by running `npx hardhat help jest`:
 
 ```shell
-Usage: hardhat [GLOBAL OPTIONS] jest [--no-compile] [--watch] [--watch-all]
+Usage: hardhat [GLOBAL OPTIONS] jest [--bail] [--no-compile] [--watch] [--watch-all]
 
 OPTIONS:
 
-  --no-compile	Do NOT compile before running this task
-  --watch     	Watch files for changes and rerun tests related to changed files.
-  --watch-all 	Watch files for changes and rerun all tests
+  --bail      	Stop running tests after the first test failure. 
+  --no-compile	Do NOT compile before running this task. 
+  --watch     	Watch files for changes and rerun tests related to changed files. 
+  --watch-all 	Watch files for changes and rerun all tests. 
 
 jest: Runs Jest tests
 
 For global options help run: hardhat help
 ```
+
+to use options, you can easily run
+```shell
+npx hardhat jest <option-name>
+
+// for example
+npx hardhat jest --no-compile --watch
+```
+
 
 ### Hardhat-tasks
 
