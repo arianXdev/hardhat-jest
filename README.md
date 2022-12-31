@@ -8,7 +8,7 @@
 </a>
 
 <a style="display: block" target="_blank" href="https://npmjs.com/package/hardhat-jest"><img
-    src="hardhat-jest.png"
+    src="https://github.com/RyanHosseini/hardhat-jest/blob/main/hardhat-jest.png"
     width='1200"' /></a>
 [![Npm package version](https://badgen.net/npm/v/hardhat-jest)](https://npmjs.com/package/hardhat-jest)
 
