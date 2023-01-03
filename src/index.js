@@ -42,6 +42,7 @@ subtask("jest:run").setAction(async ({ watchFlag, watchAllFlag, bailFlag }) => {
 		watch: watchFlag,
 		watchAll: watchFlag ? undefined : watchAllFlag,
 		bail: bailFlag,
+		testTimeout: 50000,
 	};
 
 	await runCLI(jestOptions, projectRootPath)
