@@ -31,6 +31,7 @@ subtask("jest:run").setAction(async ({ watchFlag, watchAllFlag, bailFlag }) => {
 	const projectRootPath = [config.paths.root];
 
 	const jestOptions = {
+		setupFiles: ["hardhat/register"],
 		watch: watchFlag,
 		watchAll: watchFlag ? undefined : watchAllFlag,
 		bail: bailFlag,
