@@ -1,8 +1,12 @@
-const { task, subtask } = require("hardhat/config");
+const { task, subtask, types } = require("hardhat/config");
 const { TASK_COMPILE } = require("hardhat/builtin-tasks/task-names");
 const { runCLI } = require("jest");
+const { readFile, writeFile } = require("fs").promises;
 
 let projectRootPath;
+let verboseStatus;
+
+const dotconfigPath = `${__dirname}/../.config`;
 
 task("jest", "Runs Jest tests")
 	.addFlag("noCompile", "Do NOT compile before running this task.")
@@ -13,12 +17,19 @@ task("jest", "Runs Jest tests")
 	.addFlag("watchAll", "Watch files for changes and rerun all tests.")
 	.addFlag("bail", "Stop running tests after the first test failure.")
 	.addFlag("showConfig", "Print your jest config and then exits.")
+	.addOptionalParam(
+		"useVerbose",
+		"Display individual test results with the test suite hierarchy. | Enable / Disable [boolean]",
+		false,
+		types.boolean
+	)
 	.setAction(async (taskArgs, { run }) => {
 		const {
 			watch: watchFlag,
 			watchAll: watchAllFlag,
 			noCompile: noCompileFlag,
 			bail: bailFlag,
+			useVerbose,
 			showConfig,
 		} = await taskArgs;
 
@@ -32,6 +43,16 @@ task("jest", "Runs Jest tests")
 		// If --show-config is added, it prints the jest config and then exits
 		showConfig ? await run("jest:showConfig") : null;
 
+		// if --use-verbose value is used, then run changeVerbose suntask to change verbose status
+		useVerbose != undefined
+			? await run("jest:changeVerbose", { useVerbose })
+			: null;
+
+		// Read and set verbose status from .config file
+		verboseStatus = (await readFile(dotconfigPath, "utf8")).includes(
+			"true"
+		);
+
 		// Call suntask jest:run
 		await run("jest:run", { watchFlag, watchAllFlag, bailFlag });
 	});
@@ -42,6 +63,7 @@ subtask("jest:run").setAction(async ({ watchFlag, watchAllFlag, bailFlag }) => {
 		watch: watchFlag,
 		watchAll: watchFlag ? undefined : watchAllFlag,
 		bail: bailFlag,
+		verbose: verboseStatus,
 		testTimeout: 50000,
 	};
 
@@ -57,4 +79,8 @@ subtask("jest:showConfig").setAction(async () => {
 	)
 		.then((result) => result)
 		.catch((error) => console.error(error));
+});
+
+subtask("jest:changeVerbose", async ({ useVerbose: verbose }) => {
+	await writeFile(dotconfigPath, `verbose: ${verbose}`);
 });
