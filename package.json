@@ -1,7 +1,7 @@
 {
 	"name": "hardhat-jest",
-	"version": "1.0.5",
-	"description": "A Hardhat plugin for using Jest",
+	"version": "1.0.6",
+	"description": "A Hardhat plugin that allows you to use Jest easily!",
 	"main": "src/index.js",
 	"scripts": {
 		"test": "jest"

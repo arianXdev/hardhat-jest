@@ -58,14 +58,17 @@ You've been using `npx hardhat test` to run your Mocha tests so far, but NOW you
 If you're looking to see all the options, you can do it by running `npx hardhat help jest`:
 
 ```shell
-Usage: hardhat [GLOBAL OPTIONS] jest [--bail] [--no-compile] [--watch] [--watch-all]
+Usage: hardhat [GLOBAL OPTIONS] jest [--bail] [--no-compile] [--show-config] [--use-verbose <BOOLEAN>] [--watch] [--watch-all]
 
 OPTIONS:
 
-  --bail      	Stop running tests after the first test failure. 
-  --no-compile	Do NOT compile before running this task. 
-  --watch     	Watch files for changes and rerun tests related to changed files. 
-  --watch-all 	Watch files for changes and rerun all tests. 
+  --bail       	Stop running tests after the first test failure.
+  --no-compile 	Do NOT compile before running this task.
+  --show-config	Print your jest config and then exits.
+  --watch      	Watch files for changes and rerun tests related to changed files.
+  --watch-all  	Watch files for changes and rerun all tests.
+  --use-verbose	Display individual test results with the test suite hierarchy. | Enable / Disable [boolean] (default: false)
+
 
 jest: Runs Jest tests
 
@@ -73,6 +76,7 @@ For global options help run: hardhat help
 ```
 
 to use options, you can easily run
+
 ```shell
 npx hardhat jest <option-name>
 
@@ -80,6 +84,17 @@ npx hardhat jest <option-name>
 npx hardhat jest --no-compile --watch
 ```
 
+#### --use-verbose
+
+If you want Jest to display individual test results with the test suite hierarchy, you can use `--use-verbose` this way:
+
+```
+npx hardhat jest --use-verbose true // it'll enable verbose for the project
+
+npx hardhat jest --use-verbose false // disables verbose mode for the project
+```
+
+Remember: the default value is `false` and disabled, so you must enable it if you want.
 
 ### Hardhat-tasks
 
@@ -111,4 +126,3 @@ and There it is, `jest` task is added successfully! it means that you can run **
 Finally, show us some love by **starring** the repository on GitHub!️ 😊
 
 Happy hacking!
-
