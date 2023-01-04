@@ -19,8 +19,8 @@ task("jest", "Runs Jest tests")
 	.addFlag("showConfig", "Print your jest config and then exits.")
 	.addOptionalParam(
 		"useVerbose",
-		"Display individual test results with the test suite hierarchy. | Enable / Disable [boolean]",
-		false,
+		"Display individual test results with the test suite hierarchy. | Enable / Disable [boolean] (default: false)",
+		undefined,
 		types.boolean
 	)
 	.setAction(async (taskArgs, { run }) => {
