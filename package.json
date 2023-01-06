@@ -1,6 +1,6 @@
 {
 	"name": "hardhat-jest",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "A Hardhat plugin that allows you to use Jest easily!",
 	"main": "src/index.js",
 	"scripts": {
@@ -27,7 +27,7 @@
 		"url": "https://github.com/RyanHosseini/hardhat-jest/issues"
 	},
 	"homepage": "https://github.com/RyanHosseini/hardhat-jest#readme",
-	"devDependencies": {
-		"jest": "^29.3.1"
+	"peerDependencies": {
+		"jest": "^29.0.0"
 	}
 }

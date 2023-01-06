@@ -12,6 +12,9 @@
     width='1200"' /></a>
 [![Npm package version](https://badgen.net/npm/v/hardhat-jest)](https://npmjs.com/package/hardhat-jest)
 
+> **Warning**:
+> If you're using < v1.0.6, Please update the package to the latest version ASAP! It may cause errors.
+
 Have you always wanted to use **Jest** instead of Mocha + Chai in your Hardhat Projects? 😉 Good News!
 
 `hardhat-jest` allows you to use **Jest** easily 😃✌️
@@ -89,7 +92,7 @@ npx hardhat jest --no-compile --watch
 If you want Jest to display individual test results with the test suite hierarchy, you can use `--use-verbose` this way:
 
 ```
-npx hardhat jest --use-verbose true // it'll enable verbose for the project
+npx hardhat jest --use-verbose true // enables verbose mode only for this project
 
 npx hardhat jest --use-verbose false // disables verbose mode for the project
 ```
