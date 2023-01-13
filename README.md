@@ -99,6 +99,16 @@ npx hardhat jest --use-verbose false // disables verbose mode for the project
 
 Remember: the default value is `false` and disabled, so you must enable it if you want.
 
+#### Specific files to test (testFiles)
+
+If you want Jest to run only specific files instead of all test files, you can do that by:
+
+```shell
+npx hardhat jest test/Test3.test.js test/Test4.test.js
+```
+
+NOTE: You must specify files with their full path (from the project root directory)
+
 ### Hardhat-tasks
 
 You can see all the available Hardhat tasks by running `npx hardhat`
