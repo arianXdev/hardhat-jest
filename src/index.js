@@ -1,6 +1,6 @@
 const { task, subtask, types } = require("hardhat/config");
 const { TASK_COMPILE } = require("hardhat/builtin-tasks/task-names");
-const { runCLI } = require("jest");
+const { run: jestRun, runCLI } = require("jest");
 const { readFile, writeFile } = require("fs").promises;
 
 let projectRootPath;
@@ -23,6 +23,10 @@ task("jest", "Runs Jest tests")
 		undefined,
 		types.boolean
 	)
+	.addOptionalVariadicPositionalParam(
+		"testFiles",
+		"An optional list of files to test"
+	)
 	.setAction(async (taskArgs, { run }) => {
 		const {
 			watch: watchFlag,
@@ -31,6 +35,7 @@ task("jest", "Runs Jest tests")
 			bail: bailFlag,
 			useVerbose,
 			showConfig,
+			testFiles,
 		} = await taskArgs;
 
 		projectRootPath = [config.paths.root];
@@ -53,8 +58,9 @@ task("jest", "Runs Jest tests")
 			"true"
 		);
 
-		// Call suntask jest:run
-		await run("jest:run", { watchFlag, watchAllFlag, bailFlag });
+		testFiles
+			? await run("jest:runSpecificFiles", { testFiles })
+			: await run("jest:run", { watchFlag, watchAllFlag, bailFlag });
 	});
 
 subtask("jest:run").setAction(async ({ watchFlag, watchAllFlag, bailFlag }) => {
@@ -83,4 +89,9 @@ subtask("jest:showConfig").setAction(async () => {
 
 subtask("jest:changeVerbose", async ({ useVerbose: verbose }) => {
 	await writeFile(dotconfigPath, `verbose: ${verbose}`);
+});
+
+subtask("jest:runSpecificFiles", async ({ testFiles }) => {
+	let files = testFiles.map((item) => `${projectRootPath}/` + item);
+	await jestRun(["--testPathPattern", ...files]);
 });
