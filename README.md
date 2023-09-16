@@ -1,4 +1,4 @@
-# hardhat-jest
+# hardhat-jest  [![hardhat](https://hardhat.org/buidler-plugin-badge.svg?1)](https://hardhat.org)
 
 <a href="https://npmjs.com/package/hardhat-jest" target="_blank">
 	<img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/>
@@ -11,6 +11,7 @@
     src="hardhat-jest.png"
     width='1200"' /></a>
 [![Npm package version](https://badgen.net/npm/v/hardhat-jest)](https://npmjs.com/package/hardhat-jest)
+[![hardhat](https://hardhat.org/buidler-plugin-badge.svg?1)](https://hardhat.org/plugins)
 
 > **Warning**:
 > If you're using < v1.0.6, Please update the package to the latest version ASAP! It may cause errors.
